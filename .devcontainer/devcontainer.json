@@ -4,21 +4,34 @@
     "service": "app",
     "workspaceFolder": "/workspaces/kafka-tutorial",
     "hostRequirements": {
-        "cpus": 4
+        "cpus": 4,
+        "memory": "8gb"
     },
     "waitFor": "onCreateCommand",
-    "updateContentCommand": "python3 -m pip install --upgrade pip && sudo apt update && sudo apt install -y python3-distutils && python3 -m pip install -r requirements.txt",
+    "updateContentCommand": "python3 -m pip install --user --upgrade pip && sudo apt update && sudo apt install -y python3-distutils && python3 -m pip install --user pip-tools && pip-compile --upgrade -o requirements.txt requirements.in && python3 -m pip install --user -r requirements.txt",
     "postCreateCommand": "git config --global --add safe.directory /workspaces/kafka-tutorial && bash /workspaces/kafka-tutorial/.devcontainer/post-create.sh",
     "customizations": {
         "codespaces": {
-            "openFiles": []
+            "openFiles": [
+                "README.md"
+            ]
         },
         "vscode": {
             "extensions": [
                 "ms-python.python",
                 "ms-python.vscode-pylance",
-                "ms-toolsai.jupyter"
-            ]
+                "ms-toolsai.jupyter",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                "python.linting.enabled": true,
+                "python.formatting.provider": "black",
+                "editor.formatOnSave": true
+            }
         }
+    },
+    "remoteUser": "vscode",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {}
     }
 }

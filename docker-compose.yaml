@@ -8,7 +8,7 @@ services:
   app:
     image: mcr.microsoft.com/devcontainers/python:3.11
     volumes:
-      - ..:/workspaces/kafka-cohort:cached
+      - .:/workspaces/kafka-tutorial
     command: sleep infinity
 
   # Kafka Broker
