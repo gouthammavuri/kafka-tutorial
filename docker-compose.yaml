@@ -5,6 +5,11 @@ networks:
     driver: bridge
 
 services:
+  app:
+    image: mcr.microsoft.com/devcontainers/python:3.11
+    volumes:
+      - ..:/workspaces/kafka-cohort:cached
+    command: sleep infinity
 
   # Kafka Broker
   kafka-broker:
