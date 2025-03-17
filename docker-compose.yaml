@@ -7,9 +7,12 @@ networks:
 services:
   app:
     image: mcr.microsoft.com/devcontainers/python:3.11
+    container_name: python-environment
     volumes:
       - .:/workspaces/kafka-tutorial
     command: sleep infinity
+    networks:
+      - kafka-cohort-network
 
   # Kafka Broker 1
   kafka-broker-1:
