@@ -5,3 +5,5 @@ fastavro
 configparser
 faker
 notebook
+cachetools
+authlib
