@@ -7,3 +7,5 @@ faker
 notebook
 cachetools
 authlib
+protobuf
+googleapis-common-protos
